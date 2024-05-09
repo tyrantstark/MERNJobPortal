@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "proxy": "lcp --proxyUrl <REMOTE_DOMAIN> --port <PROXY_PORT> --credentials --proxyPartial= --origin http://localhost:<5173>"
+    "proxy": "https://mern-job-portal-y2jc.vercel.app"
   },
   "author": "",
   "license": "ISC",
