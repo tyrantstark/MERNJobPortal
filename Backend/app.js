@@ -11,6 +11,20 @@ import { errorMiddleware } from "./middleware/error.js"
 
 const app=express()
 dotenv.config({path:"./config/config.env"})
+
+app.options('*', (req, res) => {
+  res.header('Access-Control-Allow-Origin', 'https://mern-job-portal-y2jc.vercel.app');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.sendStatus(204); // No content for preflight request
+});
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://mern-job-portal-y2jc.vercel.app');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
 //app.use(cors());
 // app.use((req, res, next) => {
     
