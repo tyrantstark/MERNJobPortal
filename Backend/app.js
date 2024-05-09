@@ -1,6 +1,6 @@
 import express from "express"
 import dotenv from "dotenv"
-import cors from "cors"
+//import cors from "cors"
 import cookieParser from "cookie-parser"
 import fileUpload from "express-fileupload"
 import userRouter from "./routes/userRouter.js"
