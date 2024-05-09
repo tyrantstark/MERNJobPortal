@@ -1,6 +1,6 @@
 import express from "express"
 import dotenv from "dotenv"
-//import cors from "cors"
+import cors from "cors"
 import cookieParser from "cookie-parser"
 import fileUpload from "express-fileupload"
 import userRouter from "./routes/userRouter.js"
@@ -12,23 +12,23 @@ import { errorMiddleware } from "./middleware/error.js"
 const app=express()
 dotenv.config({path:"./config/config.env"})
 //app.use(cors());
-// app.use((req, res, next) => {
+app.use((req, res, next) => {
     
-//     res.header("Access-Control-Allow-Origin", process.env.FRONTEND_URL); 
-//     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-//     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-//     res.header("Access-Control-Allow-Credentials", "true"); 
+    res.header("Access-Control-Allow-Origin", "*"); 
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    res.header("Access-Control-Allow-Credentials", "true"); 
   
     
-//     next();
-//   });
-const cors = require('cors');
-const corsOptions ={
-    origin:'https://mern-job-portal-y2jc.vercel.app', 
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200
-}
-app.use(cors(corsOptions));
+    next();
+  });
+// const cors = require('cors');
+// const corsOptions ={
+//     origin:'https://mern-job-portal-y2jc.vercel.app', 
+//     credentials:true,            //access-control-allow-credentials:true
+//     optionSuccessStatus:200
+// }
+// app.use(cors(corsOptions));
   
 app.use(cookieParser());
 app.use(express.json());
